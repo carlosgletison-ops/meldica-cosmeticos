@@ -1590,10 +1590,9 @@ p {
 }
 
 .hero-main-img {
-  width: 85%;
-  height: 85%;
-  object-fit: contain;
-  filter: drop-shadow(0 15px 30px rgba(19, 46, 32, 0.1));
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* VSL Section */
