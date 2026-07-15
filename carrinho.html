@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sua sacola de compras na Méldica Cosméticos. Finalize seu pedido de cosméticos naturais.">
+  <title>Sacola | Méldica Cosméticos</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-track">
+      <span>Frete grátis em compras acima de R$ 199 &nbsp;//&nbsp; 10% OFF na primeira compra com cupom: <strong class="mono">MEL10</strong> &nbsp;//&nbsp; Fórmulas 100% Veganas e Cruelty-Free</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo-link">
+        <img src="assets/logo.png" alt="Méldica Cosméticos Logo" class="header-logo">
+      </a>
+      
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="produtos.html" class="nav-link">Catálogo</a></li>
+          <li><a href="index.html#sobre" class="nav-link">Sobre Nós</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="carrinho.html" class="cart-button" aria-label="Ver sacola de compras">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-count mono">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cart Section -->
+  <section class="cart-section">
+    <div class="section-header" style="text-align: left; align-items: flex-start; margin-bottom: 2rem;">
+      <span class="section-tagline">Finalize seu ritual</span>
+      <h2 class="section-title">Sua Sacola</h2>
+    </div>
+
+    <!-- Cart Layout Grid -->
+    <div class="cart-layout" id="cart-layout">
+      
+      <!-- Cart Items List Column -->
+      <div class="cart-list-container" id="cart-items-wrapper">
+        <!-- Rendered dynamically by cart-page.js -->
+      </div>
+
+      <!-- Cart Summary Column -->
+      <div class="cart-summary-card" id="cart-summary-box">
+        <h3 class="summary-title">Resumo do Pedido</h3>
+        
+        <!-- Free Shipping Progress -->
+        <div class="shipping-progress-container">
+          <span id="shipping-progress-text">Faltam R$ 199,00 para Frete Grátis</span>
+          <div class="shipping-progress-bar">
+            <div id="shipping-progress-fill" class="shipping-progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span class="mono">R$ <span id="cart-subtotal">0,00</span></span>
+        </div>
+        <div class="summary-row">
+          <span>Frete</span>
+          <span id="cart-shipping-text">Calculado no checkout</span>
+        </div>
+        
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <span class="mono">R$ <span id="cart-total">0,00</span></span>
+        </div>
+
+        <!-- Simulated Checkout Form -->
+        <form class="summary-checkout-form" id="checkout-form">
+          <h4>Dados de Entrega</h4>
+          <div class="form-group">
+            <label for="checkout-name">Nome Completo</label>
+            <input type="text" id="checkout-name" required placeholder="Digite seu nome completo">
+          </div>
+          <div class="form-group">
+            <label for="checkout-email">E-mail de Contato</label>
+            <input type="email" id="checkout-email" required placeholder="exemplo@email.com">
+          </div>
+          <div class="form-group">
+            <label for="checkout-zip">CEP</label>
+            <input type="text" id="checkout-zip" required placeholder="00000-000" maxlength="9">
+          </div>
+          <button type="submit" class="btn btn-primary btn-checkout">Finalizar Compra</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Success Order Modal Overlay -->
+  <div class="success-overlay" id="success-overlay">
+    <div class="success-modal">
+      <div class="success-icon">✓</div>
+      <h3>Pedido Confirmado!</h3>
+      <p>O seu ritual de beleza natural está a caminho! Enviamos um e-mail de confirmação com os dados de rastreamento do seu pedido.</p>
+      <button class="btn btn-primary" id="btn-success-close">Voltar ao Início</button>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="main-footer">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <img src="assets/logo.png" alt="Méldica Logo" class="footer-logo">
+        <p>Cosmética natural de alta performance para um ritual de autocuidado puro, ético e minimalista.</p>
+      </div>
+      <div class="footer-newsletter-col">
+        <h3>Cadastre-se na nossa Newsletter</h3>
+        <p>Receba segredos de skincare natural, lançamentos de produtos e 10% OFF no seu primeiro pedido.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Obrigado por se inscrever!'); this.reset();">
+          <input type="email" placeholder="Seu melhor e-mail" required aria-label="Endereço de e-mail">
+          <button type="submit" class="btn btn-accent">Inscrever</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-meta">
+        <p>&copy; 2026 Méldica Cosméticos. Todos os direitos reservados.</p>
+        <p>Desenvolvido com amor à natureza.</p>
+      </div>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Pinterest">Pinterest</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="cart.js"></script>
+  <script src="cart-page.js"></script>
+</body>
+</html>
